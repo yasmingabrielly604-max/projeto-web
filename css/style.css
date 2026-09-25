@@ -23,6 +23,13 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+main img {
+    width: 500px;
+    max-width: 100%;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+}
 
 .navbar h1 {
     color: white;
