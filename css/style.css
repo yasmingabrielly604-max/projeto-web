@@ -1,48 +1,119 @@
+/* =========================================================
+   DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+
+    /* -------------------------
+       CORES
+       ------------------------- */
+
+    --cor-primaria: #16324F;
+    --cor-secundaria: #2563EB;
+    --cor-acento: #0F766E;
+    --cor-destaque: #D97706;
+
+    --cor-fundo: #F8FAFC;
+    --cor-superficie: #FFFFFF;
+    --cor-texto: #1F2937;
+    --cor-texto-secundario: #475569;
+
+
+    /* -------------------------
+       TIPOGRAFIA
+       5 níveis hierárquicos
+       ------------------------- */
+
+    --fonte-xs: 0.75rem;
+    --fonte-sm: 0.875rem;
+    --fonte-md: 1rem;
+    --fonte-lg: 1.5rem;
+    --fonte-xl: 2.5rem;
+
+
+    /* -------------------------
+       ESPAÇAMENTOS
+       Escala modular baseada em 4px
+       ------------------------- */
+
+    --espaco-1: 4px;
+    --espaco-2: 8px;
+    --espaco-3: 16px;
+    --espaco-4: 24px;
+    --espaco-5: 32px;
+    --espaco-6: 48px;
+    --espaco-7: 64px;
+
+
+    /* -------------------------
+       OUTROS PADRÕES
+       ------------------------- */
+
+    --raio-pequeno: 5px;
+    --raio-medio: 10px;
+
+    --largura-conteudo: 1100px;
+}
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================= */
+
 body {
     font-family: Arial, sans-serif;
+    font-size: var(--fonte-md);
     line-height: 1.6;
-    background-color: #f4f4f4;
-    color: #222;
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
 }
 
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
 header {
-    background-color: #222;
-    padding: 20px;
+    background-color: var(--cor-primaria);
+    padding: var(--espaco-3);
 }
 
 .navbar {
-    max-width: 1100px;
+    max-width: var(--largura-conteudo);
     margin: auto;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-main img {
-    width: 500px;
-    max-width: 100%;
-    display: block;
-    margin: 20px auto;
-    border-radius: 10px;
-}
 
 .navbar h1 {
-    color: white;
+    color: var(--cor-superficie);
+    font-size: var(--fonte-lg);
 }
 
 .navbar ul {
     list-style: none;
+
     display: flex;
-    gap: 20px;
+    gap: var(--espaco-3);
 }
 
 .navbar a {
-    color: white;
+    color: var(--cor-superficie);
+    font-size: var(--fonte-md);
     text-decoration: none;
 }
 
@@ -50,77 +121,171 @@ main img {
     text-decoration: underline;
 }
 
+
+/* =========================================================
+   CONTEÚDO PRINCIPAL
+   ========================================================= */
+
 main {
-    max-width: 1100px;
+    max-width: var(--largura-conteudo);
     margin: auto;
-    padding: 40px 20px;
+    padding: var(--espaco-6) var(--espaco-3);
 }
+
+
+/* =========================================================
+   SEÇÃO PRINCIPAL
+   ========================================================= */
 
 .hero {
     min-height: 400px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
 }
 
 .hero h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: var(--fonte-xl);
+    margin-bottom: var(--espaco-3);
 }
 
 .hero p {
-    margin-bottom: 25px;
+    font-size: var(--fonte-md);
+    margin-bottom: var(--espaco-4);
 }
+
+
+/* =========================================================
+   IMAGEM
+   ========================================================= */
+
+main img {
+    width: 500px;
+    max-width: 100%;
+
+    display: block;
+
+    margin: var(--espaco-3) auto;
+
+    border-radius: var(--raio-medio);
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
 
 .botao,
 button {
     display: inline-block;
-    background-color: #222;
-    color: white;
-    padding: 12px 20px;
+
+    background-color: var(--cor-secundaria);
+    color: var(--cor-superficie);
+
+    font-size: var(--fonte-md);
+
+    padding: var(--espaco-2) var(--espaco-3);
+
     border: none;
-    border-radius: 5px;
+    border-radius: var(--raio-pequeno);
+
     text-decoration: none;
     cursor: pointer;
 }
 
 .botao:hover,
 button:hover {
-    opacity: 0.8;
+    background-color: var(--cor-primaria);
 }
 
+
+/* =========================================================
+   ACESSIBILIDADE - FOCO PELO TECLADO
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--cor-destaque);
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   SEÇÃO DE CONTEÚDO
+   ========================================================= */
+
 .conteudo {
-    background-color: white;
-    padding: 30px;
-    margin-top: 30px;
-    border-radius: 10px;
+    background-color: var(--cor-superficie);
+
+    padding: var(--espaco-5);
+    margin-top: var(--espaco-4);
+
+    border-radius: var(--raio-medio);
 }
 
 .conteudo h2 {
-    margin-bottom: 15px;
+    font-size: var(--fonte-lg);
+    margin-bottom: var(--espaco-2);
 }
 
-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+.conteudo p {
+    font-size: var(--fonte-md);
+    color: var(--cor-texto-secundario);
 }
+
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+
+footer {
+    background-color: var(--cor-primaria);
+    color: var(--cor-superficie);
+
+    font-size: var(--fonte-sm);
+
+    text-align: center;
+
+    padding: var(--espaco-3);
+    margin-top: var(--espaco-5);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
 
 @media (max-width: 700px) {
 
     .navbar {
         flex-direction: column;
-        gap: 15px;
+        gap: var(--espaco-3);
     }
 
     .navbar ul {
-        gap: 10px;
+        gap: var(--espaco-2);
+    }
+
+    .navbar h1 {
+        font-size: var(--fonte-lg);
+    }
+
+    .hero {
+        min-height: 300px;
     }
 
     .hero h2 {
-        font-size: 2rem;
+        font-size: var(--fonte-lg);
+    }
+
+    .hero p {
+        font-size: var(--fonte-sm);
+    }
+
+    .conteudo {
+        padding: var(--espaco-3);
     }
 }
