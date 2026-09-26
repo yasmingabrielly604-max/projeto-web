@@ -425,3 +425,413 @@ main img {
         text-align: center;
     }
 }
+/* =========================================================
+   MENU DROPDOWN E MENU HAMBÚRGUER
+   ========================================================= */
+
+
+/* -------------------------
+   MENU PRINCIPAL
+   ------------------------- */
+
+.navbar {
+    position: relative;
+}
+
+
+/* -------------------------
+   LINKS DO MENU
+   ------------------------- */
+
+.menu-links {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-3);
+    list-style: none;
+}
+
+
+/* -------------------------
+   LINKS
+   ------------------------- */
+
+.menu-links a,
+.dropdown-toggle {
+    color: var(--cor-superficie);
+    font-size: var(--fonte-md);
+    text-decoration: none;
+}
+
+
+/* -------------------------
+   BOTÃO DO DROPDOWN
+   ------------------------- */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--espaco-1);
+
+    background: transparent;
+    border: none;
+
+    padding: var(--espaco-2);
+
+    cursor: pointer;
+
+    font-family: inherit;
+}
+
+
+/* -------------------------
+   SETA
+   ------------------------- */
+
+.seta {
+    transition: transform 0.3s ease;
+}
+
+
+/* -------------------------
+   SUBMENU DROPDOWN
+   ------------------------- */
+
+.submenu {
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+
+    min-width: 190px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 0;
+
+    padding: var(--espaco-2);
+
+    background-color: var(--cor-primaria);
+
+    border-radius: var(--raio-pequeno);
+
+    list-style: none;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(-10px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 1000;
+}
+
+
+/* -------------------------
+   LINKS DO SUBMENU
+   ------------------------- */
+
+.submenu a {
+    display: block;
+
+    padding: var(--espaco-2);
+
+    white-space: nowrap;
+}
+
+
+/* -------------------------
+   HOVER DOS LINKS
+   ------------------------- */
+
+.menu-links a:hover,
+.dropdown-toggle:hover,
+.submenu a:hover {
+    text-decoration: underline;
+}
+
+
+/* -------------------------
+   ABERTURA DO DROPDOWN
+   ------------------------- */
+
+.dropdown:hover .submenu,
+.dropdown:focus-within .submenu,
+.dropdown.aberto .submenu {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+
+/* -------------------------
+   ANIMAÇÃO DA SETA
+   ------------------------- */
+
+.dropdown:hover .seta,
+.dropdown:focus-within .seta,
+.dropdown.aberto .seta {
+    transform: rotate(180deg);
+}
+
+
+/* -------------------------
+   FOCO ACESSÍVEL
+   ------------------------- */
+
+.menu-links a:focus-visible,
+.dropdown-toggle:focus-visible,
+.menu-toggle:focus-visible {
+
+    outline: 3px solid var(--cor-destaque);
+
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   BOTÃO HAMBÚRGUER
+   ========================================================= */
+
+.menu-toggle {
+
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    padding: var(--espaco-2);
+
+    background-color: transparent;
+
+    border: 2px solid var(--cor-superficie);
+
+    border-radius: var(--raio-pequeno);
+
+    cursor: pointer;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+/* -------------------------
+   LINHAS DO HAMBÚRGUER
+   ------------------------- */
+
+.menu-toggle span {
+
+    display: block;
+
+    width: 24px;
+    height: 3px;
+
+    background-color: var(--cor-superficie);
+
+    border-radius: 2px;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+
+/* =========================================================
+   TABLET E CELULAR
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .navbar {
+
+        flex-direction: row;
+
+        justify-content: space-between;
+
+        align-items: center;
+    }
+
+
+    /* MOSTRA O BOTÃO */
+
+    .menu-toggle {
+
+        display: flex;
+    }
+
+
+    /* ESCONDE O MENU */
+
+    .menu-links {
+
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        padding: var(--espaco-2);
+
+        background-color: var(--cor-primaria);
+
+        list-style: none;
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateY(-10px);
+
+        pointer-events: none;
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease,
+            visibility 0.3s ease;
+
+        z-index: 999;
+    }
+
+
+    /* MENU ABERTO */
+
+    .navbar.menu-aberto .menu-links {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
+
+        pointer-events: auto;
+    }
+
+
+    /* LINKS MOBILE */
+
+    .menu-links > li {
+
+        width: 100%;
+    }
+
+
+    .menu-links > li > a,
+    .dropdown-toggle {
+
+        width: 100%;
+
+        padding: var(--espaco-3);
+
+        text-align: left;
+    }
+
+
+    /* SUBMENU MOBILE */
+
+    .submenu {
+
+        position: static;
+
+        width: 100%;
+
+        display: none;
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: none;
+
+        pointer-events: auto;
+
+        padding-left: var(--espaco-3);
+
+        background-color: rgba(0, 0, 0, 0.15);
+
+        border-radius: 0;
+    }
+
+
+    /* SUBMENU ABERTO */
+
+    .dropdown.aberto .submenu {
+
+        display: flex;
+    }
+
+
+    /* HAMBÚRGUER TRANSFORMADO EM X */
+
+    .navbar.menu-aberto .menu-toggle span:nth-child(1) {
+
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .navbar.menu-aberto .menu-toggle span:nth-child(2) {
+
+        opacity: 0;
+    }
+
+    .navbar.menu-aberto .menu-toggle span:nth-child(3) {
+
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+
+    /* SETA */
+
+    .dropdown.aberto .seta {
+
+        transform: rotate(180deg);
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .menu-links {
+
+        padding: var(--espaco-1);
+    }
+
+
+    .menu-links > li > a,
+    .dropdown-toggle {
+
+        padding: var(--espaco-3);
+    }
+
+}
