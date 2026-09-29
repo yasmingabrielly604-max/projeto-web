@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Feedback | Meu Projeto Web</title>
+
+    <meta
+        name="description"
+        content="Página de demonstração dos componentes de feedback."
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+
+            <h1>Meu Projeto Web</h1>
+
+            <button
+                class="menu-toggle"
+                id="menu-toggle"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+            >
+                ☰
+            </button>
+
+            <ul id="menu">
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <section class="pagina-feedback">
+
+            <h2>Componentes de Feedback</h2>
+
+            <p class="introducao">
+                Exemplos de componentes utilizados para fornecer
+                respostas visuais ao usuário.
+            </p>
+
+
+            <!-- BADGES -->
+
+            <section class="feedback-secao">
+
+                <h3>Badges</h3>
+
+                <p>
+                    Etiquetas utilizadas para categorizar informações.
+                </p>
+
+                <div class="badges">
+
+                    <span class="badge badge-sucesso">
+                        Sucesso
+                    </span>
+
+                    <span class="badge badge-aviso">
+                        Pendente
+                    </span>
+
+                    <span class="badge badge-erro">
+                        Urgente
+                    </span>
+
+                    <span class="badge badge-info">
+                        Informação
+                    </span>
+
+                </div>
+
+            </section>
+
+
+            <!-- ALERTAS -->
+
+            <section class="feedback-secao">
+
+                <h3>Alertas</h3>
+
+                <div class="alert alert-sucesso" role="alert">
+                    <strong>Sucesso!</strong>
+                    A operação foi realizada corretamente.
+                </div>
+
+                <div class="alert alert-aviso" role="alert">
+                    <strong>Atenção!</strong>
+                    Verifique as informações antes de continuar.
+                </div>
+
+                <div class="alert alert-erro" role="alert">
+                    <strong>Erro!</strong>
+                    Não foi possível realizar a operação.
+                </div>
+
+            </section>
+
+
+            <!-- TOAST -->
+
+            <section class="feedback-secao">
+
+                <h3>Toast</h3>
+
+                <p>
+                    Clique no botão abaixo para visualizar uma
+                    notificação.
+                </p>
+
+                <button
+                    class="botao"
+                    id="btn-toast"
+                    type="button"
+                >
+                    Exibir Toast
+                </button>
+
+            </section>
+
+
+            <!-- MODAL -->
+
+            <section class="feedback-secao">
+
+                <h3>Modal</h3>
+
+                <p>
+                    O modal apresenta uma mensagem sobre a página.
+                </p>
+
+                <button
+                    class="botao"
+                    id="btn-modal"
+                    type="button"
+                >
+                    Abrir Modal
+                </button>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- TOAST -->
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    >
+        <strong>Sucesso!</strong>
+        A ação foi realizada com sucesso.
+    </div>
+
+
+    <!-- MODAL -->
+
+    <div
+        id="modal"
+        class="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-titulo"
+    >
+
+        <div class="modal-conteudo">
+
+            <button
+                class="modal-fechar"
+                id="modal-fechar"
+                type="button"
+                aria-label="Fechar modal"
+            >
+                &times;
+            </button>
+
+            <h2 id="modal-titulo">
+                Confirmação
+            </h2>
+
+            <p>
+                Esta é uma demonstração de um componente modal.
+            </p>
+
+            <div class="modal-acoes">
+
+                <button
+                    class="botao"
+                    id="modal-confirmar"
+                    type="button"
+                >
+                    Confirmar
+                </button>
+
+                <button
+                    class="botao botao-secundario"
+                    id="modal-cancelar"
+                    type="button"
+                >
+                    Cancelar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <footer>
+
+        <p>
+            &copy; 2026 Meu Projeto Web
+        </p>
+
+    </footer>
+
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
