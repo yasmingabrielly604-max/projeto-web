@@ -137,3 +137,119 @@ window.addEventListener("resize", function () {
     }
 
 });
+/* =========================================
+   TOAST
+   ========================================= */
+
+const btnToast = document.getElementById("btn-toast");
+const toast = document.getElementById("toast");
+
+if (btnToast && toast) {
+
+    btnToast.addEventListener("click", function () {
+
+        toast.classList.add("mostrar");
+
+        setTimeout(function () {
+            toast.classList.remove("mostrar");
+        }, 4000);
+
+    });
+
+}
+
+
+/* =========================================
+   MODAL
+   ========================================= */
+
+const btnModal = document.getElementById("btn-modal");
+const modal = document.getElementById("modal");
+const modalFechar = document.getElementById("modal-fechar");
+const modalCancelar = document.getElementById("modal-cancelar");
+const modalConfirmar = document.getElementById("modal-confirmar");
+
+
+function abrirModal() {
+
+    if (modal) {
+        modal.classList.add("aberto");
+        document.body.style.overflow = "hidden";
+    }
+
+}
+
+
+function fecharModal() {
+
+    if (modal) {
+        modal.classList.remove("aberto");
+        document.body.style.overflow = "";
+    }
+
+}
+
+
+if (btnModal) {
+    btnModal.addEventListener("click", abrirModal);
+}
+
+
+if (modalFechar) {
+    modalFechar.addEventListener("click", fecharModal);
+}
+
+
+if (modalCancelar) {
+    modalCancelar.addEventListener("click", fecharModal);
+}
+
+
+if (modalConfirmar) {
+
+    modalConfirmar.addEventListener("click", function () {
+
+        fecharModal();
+
+        if (toast) {
+
+            toast.textContent =
+                "Sucesso! A ação foi confirmada.";
+
+            toast.classList.add("mostrar");
+
+            setTimeout(function () {
+                toast.classList.remove("mostrar");
+            }, 4000);
+
+        }
+
+    });
+
+}
+
+
+/* Fechar modal clicando fora */
+
+if (modal) {
+
+    modal.addEventListener("click", function (evento) {
+
+        if (evento.target === modal) {
+            fecharModal();
+        }
+
+    });
+
+}
+
+
+/* Fechar modal com ESC */
+
+document.addEventListener("keydown", function (evento) {
+
+    if (evento.key === "Escape") {
+        fecharModal();
+    }
+
+});
