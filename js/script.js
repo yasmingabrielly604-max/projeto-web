@@ -53,10 +53,14 @@ if (dropdown && dropdownToggle) {
 
     });
 
+}
+
 
     // Fechar dropdown ao clicar fora
 
-    document.addEventListener("click", function (evento) {
+document.addEventListener("click", function (evento) {
+
+    if (dropdown && dropdownToggle) {
 
         if (!dropdown.contains(evento.target)) {
 
@@ -69,7 +73,9 @@ if (dropdown && dropdownToggle) {
 
         }
 
-    });
+    }
+
+});
 
 }
 
@@ -129,6 +135,22 @@ window.addEventListener("resize", function () {
                 "Abrir menu"
             );
 
+        }
+
+        if (dropdown && dropdownToggle) {
+
+            dropdown.classList.remove("aberto");
+
+            dropdownToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+    }
+
+});
         }
 
         if (dropdown && dropdownToggle) {
