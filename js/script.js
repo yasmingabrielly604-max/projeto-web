@@ -2,81 +2,76 @@
 // MENU HAMBÚRGUER E DROPDOWN
 // =========================================================
 
-
-// Seleciona o cabeçalho
 const navbar = document.querySelector(".navbar");
-
-// Seleciona o botão hambúrguer
 const menuToggle = document.querySelector(".menu-toggle");
-
-// Seleciona o menu principal
-const menuLinks = document.querySelector(".menu-links");
-
-// Seleciona o dropdown
 const dropdown = document.querySelector(".dropdown");
-
-// Seleciona o botão do dropdown
 const dropdownToggle = document.querySelector(".dropdown-toggle");
-
 
 // =========================================================
 // MENU HAMBÚRGUER
 // =========================================================
 
-menuToggle.addEventListener("click", function () {
+if (navbar && menuToggle) {
 
-    const menuAberto =
-        navbar.classList.toggle("menu-aberto");
+    menuToggle.addEventListener("click", function () {
 
-    menuToggle.setAttribute(
-        "aria-expanded",
-        menuAberto
-    );
+        const menuAberto =
+            navbar.classList.toggle("menu-aberto");
 
-    menuToggle.setAttribute(
-        "aria-label",
-        menuAberto
-            ? "Fechar menu"
-            : "Abrir menu"
-    );
+        menuToggle.setAttribute(
+            "aria-expanded",
+            menuAberto
+        );
 
-});
+        menuToggle.setAttribute(
+            "aria-label",
+            menuAberto
+                ? "Fechar menu"
+                : "Abrir menu"
+        );
+
+    });
+
+}
 
 
 // =========================================================
 // DROPDOWN
 // =========================================================
 
-dropdownToggle.addEventListener("click", function () {
+if (dropdown && dropdownToggle) {
 
-    const dropdownAberto =
-        dropdown.classList.toggle("aberto");
+    dropdownToggle.addEventListener("click", function () {
 
-    dropdownToggle.setAttribute(
-        "aria-expanded",
-        dropdownAberto
-    );
-
-});
-
-
-// =========================================================
-// FECHAR DROPDOWN AO CLICAR FORA
-// =========================================================
-
-document.addEventListener("click", function (evento) {
-
-    if (!dropdown.contains(evento.target)) {
-
-        dropdown.classList.remove("aberto");
+        const dropdownAberto =
+            dropdown.classList.toggle("aberto");
 
         dropdownToggle.setAttribute(
             "aria-expanded",
-            "false"
+            dropdownAberto
         );
-    }
 
-});
+    });
+
+
+    // Fechar dropdown ao clicar fora
+
+    document.addEventListener("click", function (evento) {
+
+        if (!dropdown.contains(evento.target)) {
+
+            dropdown.classList.remove("aberto");
+
+            dropdownToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
+    });
+
+}
 
 
 // =========================================================
@@ -91,17 +86,21 @@ links.forEach(function (link) {
 
     link.addEventListener("click", function () {
 
-        navbar.classList.remove("menu-aberto");
+        if (navbar && menuToggle) {
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+            navbar.classList.remove("menu-aberto");
 
-        menuToggle.setAttribute(
-            "aria-label",
-            "Abrir menu"
-        );
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuToggle.setAttribute(
+                "aria-label",
+                "Abrir menu"
+            );
+
+        }
 
     });
 
@@ -116,30 +115,41 @@ window.addEventListener("resize", function () {
 
     if (window.innerWidth > 767) {
 
-        navbar.classList.remove("menu-aberto");
+        if (navbar && menuToggle) {
 
-        dropdown.classList.remove("aberto");
+            navbar.classList.remove("menu-aberto");
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+            menuToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
 
-        dropdownToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+            menuToggle.setAttribute(
+                "aria-label",
+                "Abrir menu"
+            );
 
-        menuToggle.setAttribute(
-            "aria-label",
-            "Abrir menu"
-        );
+        }
+
+        if (dropdown && dropdownToggle) {
+
+            dropdown.classList.remove("aberto");
+
+            dropdownToggle.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+        }
+
     }
 
 });
-/* =========================================
-   TOAST
-   ========================================= */
+
+
+// =========================================================
+// TOAST
+// =========================================================
 
 const btnToast = document.getElementById("btn-toast");
 const toast = document.getElementById("toast");
@@ -151,7 +161,9 @@ if (btnToast && toast) {
         toast.classList.add("mostrar");
 
         setTimeout(function () {
+
             toast.classList.remove("mostrar");
+
         }, 4000);
 
     });
@@ -159,9 +171,9 @@ if (btnToast && toast) {
 }
 
 
-/* =========================================
-   MODAL
-   ========================================= */
+// =========================================================
+// MODAL
+// =========================================================
 
 const btnModal = document.getElementById("btn-modal");
 const modal = document.getElementById("modal");
@@ -170,86 +182,140 @@ const modalCancelar = document.getElementById("modal-cancelar");
 const modalConfirmar = document.getElementById("modal-confirmar");
 
 
+// Abrir modal
+
 function abrirModal() {
 
     if (modal) {
+
         modal.classList.add("aberto");
+
         document.body.style.overflow = "hidden";
+
     }
 
 }
 
+
+// Fechar modal
 
 function fecharModal() {
 
     if (modal) {
+
         modal.classList.remove("aberto");
+
         document.body.style.overflow = "";
+
     }
 
 }
 
 
+// Botão abrir
+
 if (btnModal) {
-    btnModal.addEventListener("click", abrirModal);
+
+    btnModal.addEventListener(
+        "click",
+        abrirModal
+    );
+
 }
 
+
+// Botão X
 
 if (modalFechar) {
-    modalFechar.addEventListener("click", fecharModal);
+
+    modalFechar.addEventListener(
+        "click",
+        fecharModal
+    );
+
 }
 
+
+// Botão cancelar
 
 if (modalCancelar) {
-    modalCancelar.addEventListener("click", fecharModal);
+
+    modalCancelar.addEventListener(
+        "click",
+        fecharModal
+    );
+
 }
 
+
+// Botão confirmar
 
 if (modalConfirmar) {
 
-    modalConfirmar.addEventListener("click", function () {
+    modalConfirmar.addEventListener(
+        "click",
+        function () {
 
-        fecharModal();
+            fecharModal();
 
-        if (toast) {
+            if (toast) {
 
-            toast.textContent =
-                "Sucesso! A ação foi confirmada.";
+                toast.textContent =
+                    "Sucesso! A ação foi confirmada.";
 
-            toast.classList.add("mostrar");
+                toast.classList.add("mostrar");
 
-            setTimeout(function () {
-                toast.classList.remove("mostrar");
-            }, 4000);
+                setTimeout(function () {
+
+                    toast.classList.remove(
+                        "mostrar"
+                    );
+
+                }, 4000);
+
+            }
 
         }
-
-    });
+    );
 
 }
 
 
-/* Fechar modal clicando fora */
+// =========================================================
+// FECHAR MODAL CLICANDO FORA
+// =========================================================
 
 if (modal) {
 
-    modal.addEventListener("click", function (evento) {
+    modal.addEventListener(
+        "click",
+        function (evento) {
 
-        if (evento.target === modal) {
-            fecharModal();
+            if (evento.target === modal) {
+
+                fecharModal();
+
+            }
+
         }
-
-    });
+    );
 
 }
 
 
-/* Fechar modal com ESC */
+// =========================================================
+// FECHAR MODAL COM ESC
+// =========================================================
 
-document.addEventListener("keydown", function (evento) {
+document.addEventListener(
+    "keydown",
+    function (evento) {
 
-    if (evento.key === "Escape") {
-        fecharModal();
+        if (evento.key === "Escape") {
+
+            fecharModal();
+
+        }
+
     }
-
-});
+);
