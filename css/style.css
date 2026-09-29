@@ -835,3 +835,247 @@ main img {
     }
 
 }
+/* =========================================
+   COMPONENTES DE FEEDBACK
+   ========================================= */
+
+/* BADGES */
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.badge-sucesso {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.badge-aviso {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.badge-erro {
+    background-color: #FEE2E2;
+    color: #991B1B;
+}
+
+.badge-info {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+}
+
+
+/* =========================================
+   ALERTAS
+   ========================================= */
+
+.alert {
+    padding: 16px 20px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border-left: 5px solid;
+}
+
+.alert-sucesso {
+    background-color: #D1FAE5;
+    border-color: #059669;
+    color: #065F46;
+}
+
+.alert-aviso {
+    background-color: #FEF3C7;
+    border-color: #D97706;
+    color: #92400E;
+}
+
+.alert-erro {
+    background-color: #FEE2E2;
+    border-color: #DC2626;
+    color: #991B1B;
+}
+
+
+/* =========================================
+   PÁGINA DE FEEDBACK
+   ========================================= */
+
+.pagina-feedback {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.pagina-feedback h2 {
+    margin-bottom: 10px;
+}
+
+.introducao {
+    margin-bottom: 35px;
+}
+
+.feedback-secao {
+    background-color: var(--cor-superficie);
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.feedback-secao h3 {
+    margin-bottom: 10px;
+}
+
+
+/* =========================================
+   TOAST
+   ========================================= */
+
+.toast {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    min-width: 280px;
+    max-width: 400px;
+
+    padding: 16px 20px;
+
+    background-color: var(--cor-primaria);
+    color: #FFFFFF;
+
+    border-radius: 8px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        visibility 0.3s ease;
+
+    z-index: 1000;
+}
+
+.toast.mostrar {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   MODAL
+   ========================================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background-color: rgba(0, 0, 0, 0.6);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 2000;
+}
+
+.modal.aberto {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-conteudo {
+    position: relative;
+
+    width: 100%;
+    max-width: 500px;
+
+    padding: 30px;
+
+    background-color: var(--cor-superficie);
+
+    border-radius: 10px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    transform: scale(0.9);
+    transition: 0.3s ease;
+}
+
+.modal.aberto .modal-conteudo {
+    transform: scale(1);
+}
+
+.modal-conteudo h2 {
+    margin-bottom: 15px;
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 2rem;
+    color: var(--cor-texto-secundario);
+
+    cursor: pointer;
+}
+
+.modal-fechar:hover {
+    color: var(--cor-texto);
+}
+
+.modal-acoes {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+
+/* =========================================
+   RESPONSIVIDADE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .feedback-secao {
+        padding: 20px;
+    }
+
+    .toast {
+        left: 20px;
+        right: 20px;
+        min-width: auto;
+    }
+
+    .modal-conteudo {
+        padding: 25px 20px;
+    }
+}
